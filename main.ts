@@ -635,6 +635,7 @@ strip = PlanetX_Display.create(PlanetX_Display.DigitalRJPin.J1, 24, PlanetX_Disp
 手动电机速度 = 100
 自动巡线速度 = 40
 basic.showNumber(0)
+// 230518
 basic.forever(function () {
     if (PlanetX_Basic.Crash(PlanetX_Basic.DigitalRJPin.J2)) {
         舵机复位()
