@@ -441,7 +441,7 @@ function _2号轨道2 () {
     }
     neZha.stopAllMotor()
     basic.pause(800)
-    巡线毫秒(1000)
+    巡线毫秒(1100)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 210)
     basic.pause(200)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 240)
@@ -643,7 +643,6 @@ basic.forever(function () {
         PlanetX_AILens.initModule()
         PlanetX_AILens.switchfunc(PlanetX_AILens.FuncList.Card)
         舵机复位()
-        第二段()
         第三段()
     } else {
         手动阶段()
