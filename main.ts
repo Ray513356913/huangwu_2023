@@ -31,7 +31,7 @@ function 第三段 () {
     neZha.stopAllMotor()
     basic.pause(300)
     左右轮差速(60, -10)
-    basic.pause(700)
+    basic.pause(1200)
     neZha.stopAllMotor()
     basic.pause(200)
     while (!(PlanetX_Basic.TrackbitChannelState(PlanetX_Basic.TrackbitChannel.Two, PlanetX_Basic.TrackbitType.State_1))) {
@@ -39,7 +39,7 @@ function 第三段 () {
     }
     neZha.stopAllMotor()
     basic.pause(300)
-    自动巡线速度 = 25
+    自动巡线速度 = 30
     巡线毫秒(150)
     while (!(PlanetX_Basic.TrackbitChannelState(PlanetX_Basic.TrackbitChannel.Two, PlanetX_Basic.TrackbitType.State_1) && (PlanetX_Basic.TrackbitChannelState(PlanetX_Basic.TrackbitChannel.Three, PlanetX_Basic.TrackbitType.State_1) && PlanetX_Basic.TrackbitChannelState(PlanetX_Basic.TrackbitChannel.One, PlanetX_Basic.TrackbitType.State_1)))) {
         PlanetX_Basic.Trackbit_get_state_value()
@@ -57,7 +57,7 @@ function 第三段 () {
     neZha.stopAllMotor()
     basic.pause(800)
     左右轮差速(-40, -40)
-    basic.pause(300)
+    basic.pause(150)
     neZha.stopAllMotor()
     basic.pause(300)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 180)
@@ -449,7 +449,7 @@ function 左右轮差速 (M1: number, M2: number) {
 function _1号轨道 () {
     自动巡线速度 = 23
     for (let index = 0; index < 2; index++) {
-        巡线毫秒(710)
+        巡线毫秒(720)
         neZha.stopAllMotor()
         basic.pause(500)
     }
@@ -458,7 +458,7 @@ function _1号轨道 () {
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 240)
     basic.pause(200)
     自动巡线速度 = 25
-    巡线毫秒(2300)
+    巡线毫秒(2100)
     neZha.stopAllMotor()
 }
 input.onButtonPressed(Button.B, function () {
