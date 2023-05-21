@@ -152,10 +152,10 @@ function 手动阶段 () {
         basic.pause(10)
     } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Sele)) {
         手动电机速度 = 50
-        if (捡球角度S2 >= 250) {
+        if (捡球角度S2 >= 245) {
             捡球角度S2 += 0
         } else if (捡球角度S2 >= 180) {
-            捡球角度S2 += 40
+            捡球角度S2 += 30
         } else {
             捡球角度S2 += 10
         }
