@@ -152,9 +152,9 @@ function 手动阶段 () {
         basic.pause(10)
     } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Sele)) {
         手动电机速度 = 50
-        if (捡球角度S2 >= 245) {
+        if (捡球角度S2 >= 250) {
             捡球角度S2 += 0
-        } else if (捡球角度S2 >= 180) {
+        } else if (捡球角度S2 >= 160) {
             捡球角度S2 += 30
         } else {
             捡球角度S2 += 10
@@ -240,14 +240,14 @@ function _3号轨道3 () {
         高级巡线()
     }
     neZha.stopAllMotor()
-    basic.pause(1000)
-    巡线毫秒(550)
+    basic.pause(1200)
+    巡线毫秒(5500)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 210)
     basic.pause(200)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 240)
     basic.pause(200)
     自动巡线速度 = 25
-    巡线毫秒(700)
+    巡线毫秒(850)
     neZha.stopAllMotor()
 }
 function 右转后退 () {
@@ -433,13 +433,13 @@ function _2号轨道2 () {
     }
     neZha.stopAllMotor()
     basic.pause(800)
-    巡线毫秒(700)
+    巡线毫秒(800)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 210)
     basic.pause(200)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 240)
     basic.pause(200)
     自动巡线速度 = 25
-    巡线毫秒(1250)
+    巡线毫秒(1400)
     neZha.stopAllMotor()
 }
 function 左右轮差速 (M1: number, M2: number) {
@@ -451,7 +451,7 @@ function _1号轨道 () {
     for (let index = 0; index < 2; index++) {
         巡线毫秒(500)
         neZha.stopAllMotor()
-        basic.pause(500)
+        basic.pause(800)
     }
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 210)
     basic.pause(200)
@@ -468,7 +468,7 @@ function _1号轨道 () {
         PlanetX_Basic.Trackbit_get_state_value()
         高级巡线()
     }
-    巡线毫秒(900)
+    巡线毫秒(1100)
     neZha.stopAllMotor()
 }
 input.onButtonPressed(Button.B, function () {
@@ -638,13 +638,12 @@ neZha.stopAllMotor()
 strip = PlanetX_Display.create(PlanetX_Display.DigitalRJPin.J1, 24, PlanetX_Display.NeoPixelMode.RGB)
 倒球角度S1 = 170
 捡球角度S2 = 245
-手动电机速度 = 100
+手动电机速度 = 60
 自动巡线速度 = 40
 basic.showNumber(0)
 // 230524
 basic.forever(function () {
     if (PlanetX_Basic.Crash(PlanetX_Basic.DigitalRJPin.J2)) {
-        PlanetX_AILens.initModule()
         PlanetX_AILens.switchfunc(PlanetX_AILens.FuncList.Card)
         basic.clearScreen()
         舵机复位()
