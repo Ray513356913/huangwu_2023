@@ -641,7 +641,7 @@ strip = PlanetX_Display.create(PlanetX_Display.DigitalRJPin.J1, 24, PlanetX_Disp
 手动电机速度 = 60
 自动巡线速度 = 40
 basic.showNumber(0)
-// 230524
+// 230525
 basic.forever(function () {
     if (PlanetX_Basic.Crash(PlanetX_Basic.DigitalRJPin.J2)) {
         PlanetX_AILens.switchfunc(PlanetX_AILens.FuncList.Card)
