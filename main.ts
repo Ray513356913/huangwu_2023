@@ -241,7 +241,7 @@ function _3号轨道3 () {
     }
     neZha.stopAllMotor()
     basic.pause(1200)
-    巡线毫秒(5500)
+    巡线毫秒(550)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 210)
     basic.pause(200)
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 240)
@@ -346,7 +346,7 @@ function 第二段 () {
     neZha.stopAllMotor()
     basic.pause(500)
     自动巡线速度 = 30
-    巡线毫秒(960)
+    巡线毫秒(950)
     neZha.stopAllMotor()
     basic.pause(500)
     while (!(PlanetX_Basic.TrackbitChannelState(PlanetX_Basic.TrackbitChannel.Four, PlanetX_Basic.TrackbitType.State_1))) {
@@ -540,12 +540,12 @@ function 第四段 () {
     neZha.stopAllMotor()
 }
 function 第一段 () {
-    自动巡线速度 = 25
+    自动巡线速度 = 35
     basic.pause(100)
     左右轮差速(80, 80)
     basic.pause(700)
     neZha.stopAllMotor()
-    basic.pause(200)
+    basic.pause(0)
     PlanetX_Basic.Trackbit_get_state_value()
     while (!(PlanetX_Basic.TrackbitChannelState(PlanetX_Basic.TrackbitChannel.Three, PlanetX_Basic.TrackbitType.State_1))) {
         PlanetX_Basic.Trackbit_get_state_value()
