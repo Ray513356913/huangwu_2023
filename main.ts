@@ -11,6 +11,15 @@ function 手动右转 () {
         neZha.setMotorSpeed(neZha.MotorList.M2, -0.5 * 手动电机速度)
     }
 }
+function 亮灯32 () {
+    if (ABC位置 == 2 || ABC位置 == 4) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Blue))
+    } else if (ABC位置 == 1 || ABC位置 == 6) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Yellow))
+    } else if (ABC位置 == 3 || ABC位置 == 5) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Red))
+    }
+}
 function 第三段 () {
     右转找黑线()
     自动巡线速度 = 40
@@ -72,15 +81,6 @@ function 第三段 () {
     neZha.stopAllMotor()
     basic.pause(300)
 }
-function 亮灯32 () {
-    if (ABC位置 == 2 || ABC位置 == 4) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Blue))
-    } else if (ABC位置 == 1 || ABC位置 == 6) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Yellow))
-    } else if (ABC位置 == 3 || ABC位置 == 5) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Red))
-    }
-}
 function 巡线毫秒 (数字: number) {
     初始时间 = input.runningTime()
     PlanetX_Basic.Trackbit_get_state_value()
@@ -101,38 +101,38 @@ function 舵机复位 () {
     neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S4, 335)
 }
 function 手动阶段 () {
-    if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.LEFT) || PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Squ)) {
+    if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP) || PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
             左转前进()
-        } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.DOWN)) {
+        } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
             左转后退()
         } else {
             手动左转()
         }
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.RIGHT) || PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Cir)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP) || PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
             右转前进()
-        } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.DOWN)) {
+        } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
             右转后退()
         } else {
             手动右转()
         }
     } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         手动前进()
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.DOWN)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         手动后退()
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Right1)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         if (倒球角度S1 >= 238) {
             倒球角度S1 += 0
         } else {
             倒球角度S1 += 2
         }
         neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S1, 倒球角度S1)
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Right2)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         倒球角度S1 = 160
         neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S1, 倒球角度S1)
         basic.pause(10)
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Tri)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         手动电机速度 = 50
         if (捡球角度S2 >= 185) {
             捡球角度S2 += 0
@@ -141,7 +141,7 @@ function 手动阶段 () {
         }
         neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 捡球角度S2)
         basic.pause(10)
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.X)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         手动电机速度 = 50
         if (捡球角度S2 <= 130) {
             捡球角度S2 += 0
@@ -150,7 +150,7 @@ function 手动阶段 () {
         }
         neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 捡球角度S2)
         basic.pause(10)
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Sele)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         手动电机速度 = 50
         if (捡球角度S2 >= 250) {
             捡球角度S2 += 0
@@ -161,10 +161,10 @@ function 手动阶段 () {
         }
         neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 捡球角度S2)
         basic.pause(10)
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Left1)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         手动电机速度 = 100
         neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 240)
-    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.Left2)) {
+    } else if (PlanetX_Basic.get_Attention_Value(PlanetX_Basic.value_level.UP)) {
         手动电机速度 = 100
         neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S3, 150)
     } else {
@@ -174,15 +174,6 @@ function 手动阶段 () {
 function 自动前进 () {
     neZha.setMotorSpeed(neZha.MotorList.M1, 自动巡线速度)
     neZha.setMotorSpeed(neZha.MotorList.M2, 自动巡线速度)
-}
-function 亮灯33 () {
-    if (ABC位置 == 1 || ABC位置 == 3) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Blue))
-    } else if (ABC位置 == 2 || ABC位置 == 5) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Yellow))
-    } else if (ABC位置 == 4 || ABC位置 == 6) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Red))
-    }
 }
 function 左转后退 () {
     neZha.setMotorSpeed(neZha.MotorList.M1, 0 - 手动电机速度)
@@ -254,20 +245,20 @@ function 右转后退 () {
     neZha.setMotorSpeed(neZha.MotorList.M1, 0 - 0.15 * 手动电机速度)
     neZha.setMotorSpeed(neZha.MotorList.M2, 0 - 手动电机速度)
 }
+function 亮灯33 () {
+    if (ABC位置 == 1 || ABC位置 == 3) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Blue))
+    } else if (ABC位置 == 2 || ABC位置 == 5) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Yellow))
+    } else if (ABC位置 == 4 || ABC位置 == 6) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Red))
+    }
+}
 function 右转找黑线 () {
     while (!(PlanetX_Basic.TrackbitChannelState(PlanetX_Basic.TrackbitChannel.Two, PlanetX_Basic.TrackbitType.State_1))) {
         左右轮差速(30, -30)
     }
     neZha.stopAllMotor()
-}
-function 亮灯31 () {
-    if (ABC位置 == 5 || ABC位置 == 6) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Blue))
-    } else if (ABC位置 == 3 || ABC位置 == 4) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Yellow))
-    } else if (ABC位置 == 1 || ABC位置 == 2) {
-        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Red))
-    }
 }
 function ABC位置显示图案 () {
     if (ABC位置 == 1) {
@@ -553,6 +544,15 @@ function 第四段 () {
     左右轮差速(40, 100)
     basic.pause(800)
     neZha.stopAllMotor()
+}
+function 亮灯31 () {
+    if (ABC位置 == 5 || ABC位置 == 6) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Blue))
+    } else if (ABC位置 == 3 || ABC位置 == 4) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Yellow))
+    } else if (ABC位置 == 1 || ABC位置 == 2) {
+        strip.showColor(PlanetX_Display.colors(PlanetX_Display.NeoPixelColors.Red))
+    }
 }
 function 第一段 () {
     自动巡线速度 = 35
